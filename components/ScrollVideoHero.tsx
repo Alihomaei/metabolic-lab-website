@@ -4,7 +4,7 @@
  * ScrollVideoHero - full-bleed, scroll-scrubbed video hero.
  *
  * How it works
- * - Outer section is 300vh tall; the inner wrapper is `sticky top-0 h-svh`,
+ * - Outer section is 180vh tall; the inner wrapper is `sticky top-0 h-svh`,
  *   so the hero pins while the user scrolls through the outer container.
  * - Scroll progress through the outer container (0..1) is mapped to
  *   `video.currentTime`. The video is NEVER played - only seeked. The clip
@@ -13,7 +13,7 @@
  *   Scrubbing activates only on JS + fine pointer + >=768px + motion OK.
  *
  * Tuning
- * - Pin length: change PIN_HEIGHT ("300vh"). Bigger = slower scrub.
+ * - Pin length: change PIN_HEIGHT ("180vh"). Bigger = slower scrub.
  * - Swap clips: replace files in /public/media (hero-scrub.mp4,
  *   hero-scrub-mobile.mp4, hero-poster.jpg) - keep the all-keyframe encode.
  */
@@ -22,7 +22,7 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { site } from "@/data/site";
 
-const PIN_HEIGHT = "300vh"; // scroll distance for the full clip
+const PIN_HEIGHT = "180vh"; // scroll distance for the full clip
 const FPS = 30; // frame rate of the source clip (used to quantize seeks)
 const POSTER = "/media/hero-poster.jpg";
 const SRC_DESKTOP = "/media/hero-scrub.mp4";

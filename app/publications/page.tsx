@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { publications } from "@/data/publications";
+import { site } from "@/data/site";
 import Reveal from "@/components/Reveal";
 
 export const metadata: Metadata = {
@@ -23,9 +24,24 @@ export default function PublicationsPage() {
           <p className="kicker kicker-crimson">02 · Selected work</p>
           <h1 className="display display-page mt-5">Publications</h1>
         </div>
-        <p className="lg:col-span-4 self-end text-base leading-relaxed text-slate">
-          Peer-reviewed research. For a complete list, see the lab&rsquo;s Google
-          Scholar or PubMed profile.
+        <p className="lg:col-span-4 self-end text-base leading-relaxed text-slate prose-links">
+          Peer-reviewed research. For a complete list, see the lab&rsquo;s{" "}
+          {site.links.googleScholar ? (
+            <a className="body-link" href={site.links.googleScholar} target="_blank" rel="noopener noreferrer">
+              Google Scholar
+            </a>
+          ) : (
+            "Google Scholar"
+          )}{" "}
+          or{" "}
+          {site.links.pubmed ? (
+            <a className="body-link" href={site.links.pubmed} target="_blank" rel="noopener noreferrer">
+              PubMed
+            </a>
+          ) : (
+            "PubMed"
+          )}{" "}
+          profile.
         </p>
       </header>
 

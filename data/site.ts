@@ -4,6 +4,10 @@
 // -----------------------------------------------------------------------------
 
 export const site = {
+  // Canonical deploy URL (used for metadata, sitemap, robots). PLACEHOLDER:
+  // set this to the real production domain before launch.
+  url: "https://tavakkoli-lab.bwh.harvard.edu",
+
   // Lab identity ------------------------------------------------------------
   labName: "Laboratory for Surgical and Metabolic Research",
   shortName: "Surgical & Metabolic Research",
@@ -38,11 +42,13 @@ export const site = {
   },
 
   // Social / external -------------------------------------------------------
+  // Empty strings are treated as "not set" and are not rendered.
   links: {
+    twitter: "https://twitter.com/bwhsurgmetab",
+    instagram: "", // PLACEHOLDER: add Instagram profile URL
+    linkedin: "", // PLACEHOLDER: add LinkedIn page URL
     googleScholar: "", // PLACEHOLDER
     pubmed: "", // PLACEHOLDER
-    twitter: "https://twitter.com/bwhsurgmetab",
-    linkedin: "", // PLACEHOLDER
   },
 
   // Primary navigation (keep under 12 items per HMS usability principles) ---
