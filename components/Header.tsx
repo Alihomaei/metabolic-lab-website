@@ -28,15 +28,9 @@ export default function Header() {
                 alt={site.labName}
                 className="h-10 w-auto sm:h-11"
                 fallback={
-                  <>
-                    <span className="display text-lg sm:text-xl font-extrabold tracking-tight text-ink">
-                      {site.shortName}
-                    </span>
-                    <span className="hidden sm:inline-block h-3 w-px bg-line" />
-                    <span className="hidden sm:inline kicker">
-                      {site.medicalSchool}
-                    </span>
-                  </>
+                  <span className="display max-w-[15rem] text-sm sm:text-base font-extrabold leading-tight tracking-tight text-ink">
+                    {site.labName}
+                  </span>
                 }
               />
             </Link>

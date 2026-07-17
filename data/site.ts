@@ -6,7 +6,7 @@
 export const site = {
   // Lab identity ------------------------------------------------------------
   labName: "Laboratory for Surgical and Metabolic Research",
-  shortName: "Tavakkoli Lab",
+  shortName: "Surgical & Metabolic Research",
   tagline:
     "Investigating the biology of metabolic and bariatric surgery — the molecular connections between the intestine, gut luminal factors, and the immune system.",
 
