@@ -1,13 +1,13 @@
 "use client";
 
 /**
- * ScrollVideoHero — full-bleed, scroll-scrubbed video hero.
+ * ScrollVideoHero - full-bleed, scroll-scrubbed video hero.
  *
  * How it works
  * - Outer section is 300vh tall; the inner wrapper is `sticky top-0 h-svh`,
  *   so the hero pins while the user scrolls through the outer container.
  * - Scroll progress through the outer container (0..1) is mapped to
- *   `video.currentTime`. The video is NEVER played — only seeked. The clip
+ *   `video.currentTime`. The video is NEVER played - only seeked. The clip
  *   is re-encoded all-intra (every frame a keyframe) so seeks are exact.
  * - Progressive enhancement: SSR/no-JS renders the static poster + headline.
  *   Scrubbing activates only on JS + fine pointer + >=768px + motion OK.
@@ -15,7 +15,7 @@
  * Tuning
  * - Pin length: change PIN_HEIGHT ("300vh"). Bigger = slower scrub.
  * - Swap clips: replace files in /public/media (hero-scrub.mp4,
- *   hero-scrub-mobile.mp4, hero-poster.jpg) — keep the all-keyframe encode.
+ *   hero-scrub-mobile.mp4, hero-poster.jpg) - keep the all-keyframe encode.
  */
 
 import { useEffect, useRef, useState } from "react";
@@ -48,7 +48,7 @@ export default function ScrollVideoHero() {
   const barRef = useRef<HTMLDivElement | null>(null);
   const cueRef = useRef<HTMLParagraphElement | null>(null);
 
-  // false on SSR / no-JS / reduced-motion / touch / <md — static poster hero.
+  // false on SSR / no-JS / reduced-motion / touch / <md - static poster hero.
   const [enhanced, setEnhanced] = useState(false);
   const [src, setSrc] = useState<string | null>(null);
 
@@ -109,7 +109,7 @@ export default function ScrollVideoHero() {
         pos = t;
         paint(pos);
         ticking = false;
-        return; // settled — stop the loop until the next scroll
+        return; // settled - stop the loop until the next scroll
       }
       paint(pos);
       raf = requestAnimationFrame(loop);
@@ -176,7 +176,7 @@ export default function ScrollVideoHero() {
           />
         )}
 
-        {/* Scrim — left-weighted so the left-third text keeps WCAG AA over any frame */}
+        {/* Scrim - left-weighted so the left-third text keeps WCAG AA over any frame */}
         <div
           aria-hidden="true"
           className="absolute inset-0"
@@ -186,7 +186,7 @@ export default function ScrollVideoHero() {
           }}
         />
 
-        {/* Overlay content — left third, vertically centered; SSR'd, keyboard-reachable */}
+        {/* Overlay content - left third, vertically centered; SSR'd, keyboard-reachable */}
         <div className="relative z-10 mx-auto flex h-full min-h-svh max-w-7xl flex-col justify-center px-5 py-28 sm:px-8">
           {/* shifted left by 12.5vw, clamped so it never leaves the viewport */}
           <div className="w-full md:max-w-[33vw] md:ml-[max(-12.5vw,(80rem-100vw)/2)]">

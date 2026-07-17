@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 /* ===========================================================================
-   TAVAKKOLI LAB — Clean Modern / Swiss design system
+   Surgical & Metabolic Research - Clean Modern / Swiss design system
    HMS-compliant: single crimson accent, WCAG AA contrast, reduced-motion safe.
 =========================================================================== */
 
@@ -225,6 +225,22 @@ a.body-link:hover {
   filter: grayscale(0);
 }
 
+/* framed headshot: rounded corners, soft base shadow; lifts and pops on hover */
+.portrait-frame {
+  border-radius: 0.9rem;
+  overflow: hidden;
+  box-shadow: 0 1px 2px rgba(15, 15, 15, 0.06), 0 6px 14px -8px rgba(15, 15, 15, 0.12);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+.group:hover .portrait-frame,
+.portrait-frame:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 24px 48px -16px rgba(15, 15, 15, 0.38),
+    0 6px 16px rgba(15, 15, 15, 0.12);
+}
+
 /* --------------------------------------------------------------------------- focus */
 a:focus-visible,
 button:focus-visible,
@@ -258,8 +274,13 @@ textarea:focus-visible {
   }
   .arrow-link svg,
   .portrait,
+  .portrait-frame,
   .btn,
   .card {
     transition: none;
+  }
+  .group:hover .portrait-frame,
+  .portrait-frame:hover {
+    transform: none;
   }
 }

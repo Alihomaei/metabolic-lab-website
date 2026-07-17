@@ -11,7 +11,7 @@ export default function ContactPage() {
     <div className="mx-auto max-w-7xl px-5 sm:px-8">
       <header className="grid gap-8 lg:grid-cols-12 py-16 sm:py-20 border-b border-ink">
         <div className="lg:col-span-8">
-          <p className="kicker kicker-crimson">05 — Get in touch</p>
+          <p className="kicker kicker-crimson">05 · Get in touch</p>
           <h1 className="display display-page mt-5">Contact</h1>
         </div>
         <p className="lg:col-span-4 self-end text-base leading-relaxed text-slate">

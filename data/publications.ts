@@ -1,5 +1,5 @@
 // -----------------------------------------------------------------------------
-// PUBLICATIONS — add entries here; they are auto-grouped by year (newest first).
+// PUBLICATIONS. Add entries here; they are auto-grouped by year (newest first).
 // `link` is optional (DOI or PubMed URL). Use `featured: true` to highlight.
 // -----------------------------------------------------------------------------
 

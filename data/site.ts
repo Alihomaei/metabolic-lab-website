@@ -1,5 +1,5 @@
 // -----------------------------------------------------------------------------
-// SITE CONFIG — edit this file to control lab-wide info, nav, and branding.
+// SITE CONFIG. Edit this file to control lab-wide info, nav, and branding.
 // Content sourced from the lab's BWH site: https://surgery.bwh.harvard.edu/
 // -----------------------------------------------------------------------------
 
@@ -8,7 +8,7 @@ export const site = {
   labName: "Laboratory for Surgical and Metabolic Research",
   shortName: "Surgical & Metabolic Research",
   tagline:
-    "Investigating the biology of metabolic and bariatric surgery — the molecular connections between the intestine, gut luminal factors, and the immune system.",
+    "Investigating the biology of metabolic and bariatric surgery: the molecular connections between the intestine, gut luminal factors, and the immune system.",
 
   // Principal investigator --------------------------------------------------
   pi: {
@@ -28,9 +28,9 @@ export const site = {
 
   // Contact -----------------------------------------------------------------
   contact: {
-    email: "tavakkoli-lab@bwh.harvard.edu", // PLACEHOLDER — confirm real lab inbox
+    email: "tavakkoli-lab@bwh.harvard.edu", // PLACEHOLDER: confirm real lab inbox
     labEmail: "tavakkoli-lab@bwh.harvard.edu", // PLACEHOLDER
-    phone: "+1 (617) 732-5500", // PLACEHOLDER — BWH main line; confirm lab number
+    phone: "+1 (617) 732-5500", // PLACEHOLDER: BWH main line; confirm lab number
     address: {
       line1: "75 Francis Street",
       line2: "Boston, MA 02115",

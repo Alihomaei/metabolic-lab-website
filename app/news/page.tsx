@@ -14,7 +14,7 @@ export default function NewsPage() {
     <div className="mx-auto max-w-7xl px-5 sm:px-8">
       <header className="grid gap-8 lg:grid-cols-12 py-16 sm:py-20 border-b border-ink">
         <div className="lg:col-span-8">
-          <p className="kicker kicker-crimson">04 — Updates</p>
+          <p className="kicker kicker-crimson">04 · Updates</p>
           <h1 className="display display-page mt-5">News</h1>
         </div>
         <p className="lg:col-span-4 self-end text-base leading-relaxed text-slate">

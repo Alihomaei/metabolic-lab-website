@@ -7,8 +7,8 @@ import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: {
-    default: `${site.labName} — ${site.medicalSchool}`,
-    template: `%s — ${site.labName}`,
+    default: `${site.labName} · ${site.medicalSchool}`,
+    template: `%s · ${site.labName}`,
   },
   description: site.tagline,
 };

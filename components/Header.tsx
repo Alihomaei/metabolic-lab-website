@@ -22,7 +22,7 @@ export default function Header() {
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
           <div className="flex h-[72px] items-center justify-between gap-6">
             {/* Official lab logo (falls back to wordmark until the file is added) */}
-            <Link href="/" className="flex items-center gap-2.5 shrink-0" aria-label={`${site.labName} — home`}>
+            <Link href="/" className="flex items-center gap-2.5 shrink-0 md:ml-[min(0px,(80rem-100vw)/2)]" aria-label={`${site.labName} home`}>
               <BrandLogo
                 src="/brand/lab-logo.png"
                 alt={site.labName}

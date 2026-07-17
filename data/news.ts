@@ -1,5 +1,5 @@
 // -----------------------------------------------------------------------------
-// NEWS — items are auto-sorted by date (newest first).
+// NEWS. Items are auto-sorted by date (newest first).
 // `date` must be ISO format: "YYYY-MM-DD".
 // -----------------------------------------------------------------------------
 

@@ -18,20 +18,22 @@ export default function Avatar({ member }: { member: Member }) {
 
   if (member.photo && !failed) {
     return (
-      // eslint-disable-next-line @next/next/no-img-element
-      <img
-        src={member.photo}
-        alt={member.alt || member.name}
-        onError={() => setFailed(true)}
-        className="portrait aspect-square w-full object-cover"
-      />
+      <div className="portrait-frame aspect-square w-full">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={member.photo}
+          alt={member.alt || member.name}
+          onError={() => setFailed(true)}
+          className="portrait h-full w-full object-cover"
+        />
+      </div>
     );
   }
 
   return (
     <div
       aria-hidden="true"
-      className="aspect-square w-full bg-paper border-b border-line flex items-center justify-center"
+      className="portrait-frame aspect-square w-full bg-paper flex items-center justify-center"
     >
       <span className="display text-5xl font-extrabold text-line select-none">
         {initials}
