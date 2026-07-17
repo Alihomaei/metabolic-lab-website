@@ -1,0 +1,265 @@
+@import "tailwindcss";
+
+/* ===========================================================================
+   TAVAKKOLI LAB — Clean Modern / Swiss design system
+   HMS-compliant: single crimson accent, WCAG AA contrast, reduced-motion safe.
+=========================================================================== */
+
+@theme {
+  --color-crimson: #a51c30;
+  --color-crimson-dark: #7f1521;
+  --color-ink: #0f0f0f; /* display / near-black */
+  --color-body: #1e1e1e; /* body text (AA on white) */
+  --color-slate: #565656; /* secondary text (AA on white) */
+  --color-line: #e5e5e5; /* hairline borders */
+  --color-grid: #f1f1f1; /* faint grid lines */
+  --color-paper: #fafafa; /* subtle section background */
+
+  --font-sans: "Inter Variable", ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* --------------------------------------------------------------------------- base */
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: #ffffff;
+  color: var(--color-body);
+  font-family: var(--font-sans);
+  font-feature-settings: "cv02", "cv03", "cv04", "ss01";
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--color-crimson);
+  color: #fff;
+}
+
+/* --------------------------------------------------------------------------- type */
+.kicker {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-slate);
+}
+.kicker-crimson {
+  color: var(--color-crimson);
+}
+
+.display {
+  color: var(--color-ink);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 0.98;
+}
+.display-hero {
+  font-size: clamp(2.75rem, 8vw, 6.5rem);
+  line-height: 0.92;
+}
+.display-page {
+  font-size: clamp(2.25rem, 6vw, 4.25rem);
+  line-height: 0.95;
+}
+.display-section {
+  font-size: clamp(1.6rem, 3.2vw, 2.4rem);
+  letter-spacing: -0.025em;
+  line-height: 1.02;
+  font-weight: 700;
+  color: var(--color-ink);
+}
+
+/* tabular numerals for stats + section numbers */
+.num {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
+.section-index {
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--color-slate);
+}
+
+/* --------------------------------------------------------------------------- rules */
+.rule {
+  border: 0;
+  border-top: 1px solid var(--color-line);
+}
+.rule-ink {
+  border-top: 2px solid var(--color-ink);
+}
+
+/* faint Swiss grid backdrop (static, safe under reduced motion) */
+.grid-bg {
+  background-image: linear-gradient(
+      to right,
+      var(--color-grid) 1px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, var(--color-grid) 1px, transparent 1px);
+  background-size: 72px 72px;
+  -webkit-mask-image: radial-gradient(
+    120% 100% at 0% 0%,
+    #000 40%,
+    transparent 80%
+  );
+  mask-image: radial-gradient(120% 100% at 0% 0%, #000 40%, transparent 80%);
+}
+
+/* --------------------------------------------------------------------------- links */
+.arrow-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 600;
+  color: var(--color-crimson);
+  transition: gap 0.2s ease;
+}
+.arrow-link svg {
+  transition: transform 0.2s ease;
+}
+.group:hover .arrow-link svg,
+.arrow-link:hover svg {
+  transform: translateX(4px);
+}
+.arrow-link:hover {
+  color: var(--color-crimson-dark);
+}
+
+/* inline body links: underlined (WCAG, not color-only) */
+.prose-links a,
+a.body-link {
+  color: var(--color-crimson);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+.prose-links a:hover,
+a.body-link:hover {
+  color: var(--color-crimson-dark);
+}
+
+/* --------------------------------------------------------------------------- buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.4rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  transition: background-color 0.18s ease, color 0.18s ease,
+    border-color 0.18s ease, transform 0.18s ease;
+}
+.btn-primary {
+  background: var(--color-ink);
+  color: #fff;
+}
+.btn-primary:hover {
+  background: var(--color-crimson);
+}
+.btn-ghost {
+  border: 1px solid var(--color-line);
+  color: var(--color-ink);
+  background: #fff;
+}
+.btn-ghost:hover {
+  border-color: var(--color-ink);
+}
+
+/* inverted ghost button for dark hero (AA on dark scrim) */
+.btn-invert {
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  color: #fff;
+  background: transparent;
+}
+.btn-invert:hover {
+  border-color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* on the dark hero, use a white focus ring (crimson fails 3:1 on dark) */
+.hero-dark a:focus-visible,
+.hero-dark button:focus-visible {
+  outline-color: #fff;
+}
+
+/* CSS guard: even if JS misfires, reduced motion gets a static hero */
+@media (prefers-reduced-motion: reduce) {
+  .hero-pin-outer {
+    height: auto !important;
+  }
+  .hero-pin-outer video {
+    display: none !important;
+  }
+}
+
+/* --------------------------------------------------------------------------- cards / rows */
+.row-link {
+  transition: background-color 0.2s ease;
+}
+.row-link:hover {
+  background: var(--color-paper);
+}
+.card {
+  border: 1px solid var(--color-line);
+  background: #fff;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+.card:hover {
+  border-color: var(--color-ink);
+}
+
+/* grayscale portrait that reveals color on hover/focus */
+.portrait {
+  filter: grayscale(1) contrast(1.02);
+  transition: filter 0.3s ease;
+}
+.group:hover .portrait,
+.portrait:hover {
+  filter: grayscale(0);
+}
+
+/* --------------------------------------------------------------------------- focus */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--color-crimson);
+  outline-offset: 3px;
+}
+
+/* --------------------------------------------------------------------------- reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .arrow-link svg,
+  .portrait,
+  .btn,
+  .card {
+    transition: none;
+  }
+}
