@@ -1,51 +1,47 @@
 // -----------------------------------------------------------------------------
 // SITE CONFIG — edit this file to control lab-wide info, nav, and branding.
-// Values marked PLACEHOLDER should be replaced with your real details.
+// Content sourced from the lab's BWH site: https://surgery.bwh.harvard.edu/
 // -----------------------------------------------------------------------------
 
 export const site = {
   // Lab identity ------------------------------------------------------------
-  labName: "Tavakkoli Lab", // PLACEHOLDER — confirm exact lab name
+  labName: "Laboratory for Surgical and Metabolic Research",
   shortName: "Tavakkoli Lab",
   tagline:
-    "Advancing metabolic and gastrointestinal surgery through translational science.", // PLACEHOLDER
+    "Investigating the biology of metabolic and bariatric surgery — the molecular connections between the intestine, gut luminal factors, and the immune system.",
 
   // Principal investigator --------------------------------------------------
   pi: {
-    name: "Ali Tavakkoli, MD", // PLACEHOLDER — confirm full name & credentials
-    title: "Principal Investigator", // PLACEHOLDER
-    // e.g. "Professor of Surgery, Harvard Medical School"
-    role: "Professor of Surgery, Harvard Medical School", // PLACEHOLDER
+    name: "Ali Tavakkoli, MD",
+    title: "Principal Investigator",
+    role: "Associate Professor of Surgery, Harvard Medical School",
   },
 
   // Affiliation -------------------------------------------------------------
-  department: "Department of Surgery", // PLACEHOLDER
-  institution: "Brigham and Women's Hospital", // PLACEHOLDER
+  department: "Department of Surgery",
+  institution: "Brigham and Women's Hospital",
+  healthSystem: "Mass General Brigham",
   medicalSchool: "Harvard Medical School",
 
   // HMS naming compliance ---------------------------------------------------
-  // HMS requires the "Lastname Lab" convention for the HMS primary logo.
-  // If your site URL and header follow "Lastname Lab", set true.
-  // If false, HMS requires your DEPARTMENT branding instead of the HMS logo.
   followsLastnameLabConvention: true,
 
   // Contact -----------------------------------------------------------------
   contact: {
-    email: "tavakkoli-lab@example.harvard.edu", // PLACEHOLDER
-    // General inquiries / lab manager
-    labEmail: "labmanager@example.harvard.edu", // PLACEHOLDER
-    phone: "+1 (617) 000-0000", // PLACEHOLDER
+    email: "tavakkoli-lab@bwh.harvard.edu", // PLACEHOLDER — confirm real lab inbox
+    labEmail: "tavakkoli-lab@bwh.harvard.edu", // PLACEHOLDER
+    phone: "+1 (617) 732-5500", // PLACEHOLDER — BWH main line; confirm lab number
     address: {
-      line1: "75 Francis Street", // PLACEHOLDER
-      line2: "Boston, MA 02115", // PLACEHOLDER
+      line1: "75 Francis Street",
+      line2: "Boston, MA 02115",
     },
   },
 
   // Social / external -------------------------------------------------------
   links: {
-    googleScholar: "", // PLACEHOLDER — full URL or leave "" to hide
+    googleScholar: "", // PLACEHOLDER
     pubmed: "", // PLACEHOLDER
-    twitter: "", // PLACEHOLDER
+    twitter: "https://twitter.com/bwhsurgmetab",
     linkedin: "", // PLACEHOLDER
   },
 

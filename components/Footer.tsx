@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { site } from "@/data/site";
+import BrandLogo from "@/components/BrandLogo";
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -21,6 +22,30 @@ export default function Footer() {
               <br />
               {site.medicalSchool}
             </p>
+
+            {/* Institutional co-brand lockup (falls back to text until files added) */}
+            <div className="mt-7 flex flex-wrap items-center gap-x-7 gap-y-4">
+              <BrandLogo
+                src="/brand/mass-general-brigham.png"
+                alt={`${site.healthSystem} logo`}
+                className="h-7 w-auto sm:h-8"
+                fallback={
+                  <span className="text-sm font-semibold text-ink">
+                    {site.healthSystem}
+                  </span>
+                }
+              />
+              <BrandLogo
+                src="/brand/harvard-medical-school.png"
+                alt={`${site.medicalSchool} logo`}
+                className="h-7 w-auto sm:h-8"
+                fallback={
+                  <span className="text-sm font-semibold text-ink">
+                    {site.medicalSchool}
+                  </span>
+                }
+              />
+            </div>
           </div>
 
           {/* Contact */}

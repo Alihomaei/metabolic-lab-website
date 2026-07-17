@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { site } from "@/data/site";
+import BrandLogo from "@/components/BrandLogo";
 
 export default function Header() {
   const pathname = usePathname();
@@ -20,15 +21,24 @@ export default function Header() {
       <div className="border-b border-line bg-white/85 backdrop-blur-md supports-[backdrop-filter]:bg-white/70">
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
           <div className="flex h-[72px] items-center justify-between gap-6">
-            {/* Wordmark — replace with official HMS/department logo when available */}
-            <Link href="/" className="flex items-baseline gap-2.5 shrink-0">
-              <span className="display text-lg sm:text-xl font-extrabold tracking-tight text-ink">
-                {site.labName}
-              </span>
-              <span className="hidden sm:inline-block h-3 w-px bg-line" />
-              <span className="hidden sm:inline kicker">
-                {site.medicalSchool}
-              </span>
+            {/* Official lab logo (falls back to wordmark until the file is added) */}
+            <Link href="/" className="flex items-center gap-2.5 shrink-0" aria-label={`${site.labName} — home`}>
+              <BrandLogo
+                src="/brand/lab-logo.png"
+                alt={site.labName}
+                className="h-10 w-auto sm:h-11"
+                fallback={
+                  <>
+                    <span className="display text-lg sm:text-xl font-extrabold tracking-tight text-ink">
+                      {site.shortName}
+                    </span>
+                    <span className="hidden sm:inline-block h-3 w-px bg-line" />
+                    <span className="hidden sm:inline kicker">
+                      {site.medicalSchool}
+                    </span>
+                  </>
+                }
+              />
             </Link>
 
             {/* Desktop nav */}
