@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Member } from "@/data/team";
+import { asset } from "@/lib/asset";
 
 /** Square headshot (grayscale, reveals color on hover) if provided and it loads,
  *  otherwise an initials placeholder. Falling back on error means a not-yet-added
@@ -21,7 +22,7 @@ export default function Avatar({ member }: { member: Member }) {
       <div className="portrait-frame aspect-square w-full">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src={member.photo}
+          src={asset(member.photo)}
           alt={member.alt || member.name}
           onError={() => setFailed(true)}
           className="portrait h-full w-full object-cover"

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import type { GalleryPhoto } from "@/data/gallery";
+import { asset } from "@/lib/asset";
 
 /**
  * Masonry-style photo grid (CSS columns, so mixed aspect ratios pack cleanly).
@@ -41,7 +42,7 @@ export default function GalleryGrid({ photos }: { photos: GalleryPhoto[] }) {
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src={photo.src}
+              src={asset(photo.src)}
               alt={photo.alt}
               loading="lazy"
               decoding="async"

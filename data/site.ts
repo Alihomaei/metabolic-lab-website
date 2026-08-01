@@ -4,9 +4,12 @@
 // -----------------------------------------------------------------------------
 
 export const site = {
-  // Canonical deploy URL (used for metadata, sitemap, robots). PLACEHOLDER:
-  // set this to the real production domain before launch.
-  url: "https://tavakkoli-lab.bwh.harvard.edu",
+  // Canonical deploy URL, used for metadataBase, sitemap.xml and robots.txt.
+  // Currently the GitHub Pages project site, so it includes the /<repo> path.
+  // No trailing slash: sitemap.ts and robots.ts append their own.
+  // When the lab moves to a custom domain, set this to that origin and drop
+  // NEXT_PUBLIC_BASE_PATH from the deploy workflow at the same time.
+  url: "https://alihomaei.github.io/metabolic-lab-website",
 
   // Lab identity ------------------------------------------------------------
   labName: "Laboratory for Surgical and Metabolic Research",
@@ -52,13 +55,23 @@ export const site = {
   },
 
   // Social / external -------------------------------------------------------
-  // Empty strings are treated as "not set" and are not rendered.
+  // Empty string means "not set": Footer.tsx skips the button and
+  // app/publications/page.tsx falls back to plain text instead of a link.
+  // Paste a full https:// URL to switch any of these on. No other edit needed.
   links: {
     twitter: "https://twitter.com/bwhsurgmetab",
-    instagram: "", // PLACEHOLDER: add Instagram profile URL
-    linkedin: "", // PLACEHOLDER: add LinkedIn page URL
-    googleScholar: "", // PLACEHOLDER
-    pubmed: "", // PLACEHOLDER
+    // PLACEHOLDER, Footer button. Full profile URL, e.g.
+    // https://www.instagram.com/<handle>
+    instagram: "",
+    // PLACEHOLDER, Footer button. Company or showcase page, e.g.
+    // https://www.linkedin.com/company/<slug>
+    linkedin: "",
+    // PLACEHOLDER, Publications page. Author profile, e.g.
+    // https://scholar.google.com/citations?user=<id>
+    googleScholar: "",
+    // PLACEHOLDER, Publications page. Author search or bibliography, e.g.
+    // https://pubmed.ncbi.nlm.nih.gov/?term=Tavakkoli+A
+    pubmed: "",
   },
 
   // Primary navigation (keep under 12 items per HMS usability principles) ---

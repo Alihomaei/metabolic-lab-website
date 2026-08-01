@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type ReactNode } from "react";
+import { asset } from "@/lib/asset";
 
 /**
  * Renders a brand logo image, falling back to text (or any node) if the file
@@ -23,7 +24,7 @@ export default function BrandLogo({
   return (
     // eslint-disable-next-line @next/next/no-img-element
     <img
-      src={src}
+      src={asset(src)}
       alt={alt}
       className={className}
       onError={() => setFailed(true)}

@@ -21,12 +21,14 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { site } from "@/data/site";
+import { asset } from "@/lib/asset";
 
 const PIN_HEIGHT = "180vh"; // scroll distance for the full clip
 const FPS = 30; // frame rate of the source clip (used to quantize seeks)
-const POSTER = "/media/hero-poster.jpg";
-const SRC_DESKTOP = "/media/hero-scrub.mp4";
-const SRC_SMALL = "/media/hero-scrub-mobile.mp4";
+// asset() adds the GitHub Pages base path; raw src strings don't get it free.
+const POSTER = asset("/media/hero-poster.jpg");
+const SRC_DESKTOP = asset("/media/hero-scrub.mp4");
+const SRC_SMALL = asset("/media/hero-scrub-mobile.mp4");
 
 const Arrow = () => (
   <svg
@@ -191,7 +193,7 @@ export default function ScrollVideoHero() {
           {/* shifted left by 12.5vw, clamped so it never leaves the viewport;
               wider below lg so md viewports don't over-wrap the headline */}
           <div className="w-full md:max-w-[46vw] lg:max-w-[33vw] md:ml-[max(-12.5vw,(80rem-100vw)/2)]">
-            <p className="flex items-center gap-3 text-[1.08rem] font-semibold uppercase tracking-[0.16em] text-white/85">
+            <p className="hero-kicker flex items-center gap-3 font-semibold uppercase tracking-[0.16em] text-white/85">
               <span className="inline-block h-px w-10 bg-crimson" aria-hidden="true" />
               {site.department} &middot; {site.institution}
             </p>
