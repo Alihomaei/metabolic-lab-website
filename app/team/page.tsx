@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import {
   leadership,
+  previousPIs,
   fellows,
   students,
   collaborators,
@@ -49,8 +50,9 @@ function MemberGrid({ members }: { members: Member[] }) {
 
 function SectionHeading({ index, label }: { index: string; label: string }) {
   return (
-    <div className="mb-8">
-      <p className="kicker kicker-crimson">{index} · {label}</p>
+    <div className="mb-10">
+      <p className="kicker kicker-crimson">{index}</p>
+      <h2 className="display display-section mt-3">{label}</h2>
     </div>
   );
 }
@@ -81,10 +83,18 @@ export default function TeamPage() {
         <MemberGrid members={fellows} />
       </section>
 
+      {/* Previous PIs */}
+      {previousPIs.length > 0 && (
+        <section className="py-14 sm:py-20 border-b border-line">
+          <SectionHeading index="03" label="Previous Principal Investigators" />
+          <MemberGrid members={previousPIs} />
+        </section>
+      )}
+
       {/* Students */}
       {students.length > 0 && (
         <section className="py-14 sm:py-20 border-b border-line">
-          <SectionHeading index="03" label="Students" />
+          <SectionHeading index="04" label="Students" />
           <MemberGrid members={students} />
         </section>
       )}
@@ -92,7 +102,7 @@ export default function TeamPage() {
       {/* Collaborators */}
       {collaborators.length > 0 && (
         <section className="py-14 sm:py-20 border-b border-line">
-          <SectionHeading index="04" label="Collaborators" />
+          <SectionHeading index="05" label="Collaborators" />
           <ul className="border-t border-ink">
             {collaborators.map((c) => (
               <li
@@ -126,7 +136,7 @@ export default function TeamPage() {
       {/* Alumni */}
       {alumni.length > 0 && (
         <section className="py-16 sm:py-20">
-          <SectionHeading index="05" label="Alumni" />
+          <SectionHeading index="06" label="Alumni" />
           <ul className="border-t border-ink">
             {alumni.map((person) => (
               <li

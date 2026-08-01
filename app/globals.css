@@ -58,8 +58,19 @@ body {
   line-height: 0.98;
 }
 .display-hero {
-  font-size: clamp(2.75rem, 8vw, 6.5rem);
-  line-height: 0.92;
+  font-size: clamp(3.375rem, 6vw, 6rem);
+}
+/* .display forces ink; on dark surfaces (hero, stats band) it must be white.
+   Utilities like text-white can't win because these classes are unlayered. */
+.hero-dark .display,
+.on-dark .display {
+  color: #ffffff;
+}
+.hero-tagline {
+  font-size: 1.69rem;
+}
+.btn-lg {
+  font-size: 1.275rem;
 }
 .display-page {
   font-size: clamp(2.25rem, 6vw, 4.25rem);
@@ -183,9 +194,10 @@ a.body-link:hover {
   background: rgba(255, 255, 255, 0.1);
 }
 
-/* on the dark hero, use a white focus ring (crimson fails 3:1 on dark) */
+/* on dark surfaces, use a white focus ring (crimson fails 3:1 on dark) */
 .hero-dark a:focus-visible,
-.hero-dark button:focus-visible {
+.hero-dark button:focus-visible,
+.on-dark a:focus-visible {
   outline-color: #fff;
 }
 
@@ -206,6 +218,11 @@ a.body-link:hover {
 .row-link:hover {
   background: var(--color-paper);
 }
+/* research-row titles turn crimson on hover (the group-hover utility loses
+   to unlayered .display, so do it here) */
+.row-link:hover h3.display {
+  color: var(--color-crimson);
+}
 .card {
   border: 1px solid var(--color-line);
   background: #fff;
@@ -223,6 +240,13 @@ a.body-link:hover {
 .group:hover .portrait,
 .portrait:hover {
   filter: grayscale(0);
+}
+/* devices that can't hover (touch/stylus) never see the color reveal -
+   show portraits in full color there instead */
+@media (hover: none) {
+  .portrait {
+    filter: none;
+  }
 }
 
 /* framed headshot: rounded corners, soft base shadow; lifts and pops on hover */

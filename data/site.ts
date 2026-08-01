@@ -27,16 +27,26 @@ export const site = {
   healthSystem: "Mass General Brigham",
   medicalSchool: "Harvard Medical School",
 
+  // Founding year of the Brigham's surgical metabolism laboratory lineage
+  // (Dr. Francis D. Moore established the Laboratory for Biochemistry and
+  // Metabolism in Surgery in 1948; source: old lab site /history/).
+  founded: "1948",
+
   // HMS naming compliance ---------------------------------------------------
   followsLastnameLabConvention: true,
 
   // Contact -----------------------------------------------------------------
   contact: {
-    email: "tavakkoli-lab@bwh.harvard.edu", // PLACEHOLDER: confirm real lab inbox
-    labEmail: "tavakkoli-lab@bwh.harvard.edu", // PLACEHOLDER
-    phone: "+1 (617) 732-5500", // PLACEHOLDER: BWH main line; confirm lab number
+    // Real PI inboxes from the old lab site (/contact-us/).
+    email: "atavakkoli@bwh.harvard.edu",
+    labEmail: "atavakkoli@bwh.harvard.edu",
+    piEmails: [
+      { name: "Ali Tavakkoli, MD", email: "atavakkoli@bwh.harvard.edu" },
+      { name: "Eric G. Sheu, MD, PhD", email: "esheu@bwh.harvard.edu" },
+    ],
+    phone: "+1 (617) 732-5500", // BWH main switchboard
     address: {
-      line1: "75 Francis Street",
+      line1: "Thorn Research Building 1503, 75 Francis Street",
       line2: "Boston, MA 02115",
     },
   },
@@ -58,6 +68,7 @@ export const site = {
     { label: "Publications", href: "/publications" },
     { label: "Team", href: "/team" },
     { label: "News", href: "/news" },
+    { label: "Gallery", href: "/gallery" },
     { label: "Contact", href: "/contact" },
   ],
 };

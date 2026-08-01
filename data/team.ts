@@ -24,7 +24,7 @@ export const leadership: Member[] = [
     photo: "/team/ali-tavakkoli.jpg",
     alt: "Ali Tavakkoli, MD",
     bio: "Chief of the Division of General and Gastrointestinal Surgery at Brigham and Women's Hospital and Associate Professor of Surgery at Harvard Medical School. A minimally invasive GI surgeon and R01-funded surgeon-scientist, he co-directs the Center for Weight Management and Wellness and directs the Minimally Invasive Surgery fellowship. He leads the lab's basic and translational work on GI surgical metabolism.",
-    email: "",
+    email: "atavakkoli@bwh.harvard.edu",
   },
   {
     name: "Eric G. Sheu, MD, PhD",
@@ -32,7 +32,48 @@ export const leadership: Member[] = [
     photo: "/team/eric-sheu.jpg",
     alt: "Eric G. Sheu, MD, PhD",
     bio: "Surgeon at Brigham and Women's Hospital and Assistant Professor of Surgery at Harvard Medical School. He earned his MD from Harvard Medical School and a doctorate in immunology from Oxford. His research focuses on the role of immunometabolism and the microbiome in type 2 diabetes resolution after bariatric surgery.",
-    email: "",
+    email: "esheu@bwh.harvard.edu",
+  },
+];
+
+// --- Previous Principal Investigators ---------------------------------------
+// The lab's PI lineage back to its founding (source: old site home + /history/).
+// Headshots: run `bash scripts/pull-pi-photos.sh` to download them.
+export const previousPIs: Member[] = [
+  {
+    name: "Stanley W. Ashley, MD",
+    role: "Principal Investigator, 1997 to 2006",
+    photo: "/team/stanley-ashley.jpg",
+    alt: "Stanley W. Ashley, MD",
+    bio: "Frank Sawyer Professor of Surgery and former Chief Medical Officer of Brigham and Women's Hospital. His R01-funded work focused on intestinal adaptation, the sodium-glucose cotransporter, and GLP-2 as a therapy for short bowel syndrome.",
+  },
+  {
+    name: "Edward E. Whang, MD",
+    role: "Principal Investigator, 1998 to 2007",
+    photo: "/team/edward-whang.jpg",
+    alt: "Edward E. Whang, MD",
+    bio: "NIH-funded surgeon-scientist studying intestinal physiology and GLP-2 in intestinal adaptation, with pioneering collaborative work on tissue-engineered small intestine and novel therapies for pancreatic cancer.",
+  },
+  {
+    name: "Danny O. Jacobs, MD, MPH",
+    role: "Principal Investigator, 1997 to 2000",
+    photo: "/team/danny-jacobs.jpg",
+    alt: "Danny O. Jacobs, MD, MPH",
+    bio: "Studied the metabolic effects of malnutrition, stress, infection, and injury using nuclear magnetic resonance. Later Chair of Surgery at Duke University, then Dean and Provost of the University of Texas Medical Branch; elected to the Institute of Medicine in 2001.",
+  },
+  {
+    name: "Douglas W. Wilmore, MD",
+    role: "Principal Investigator, 1979 to 1997",
+    photo: "/team/douglas-wilmore.jpg",
+    alt: "Douglas W. Wilmore, MD",
+    bio: "Frank Sawyer Professor of Surgery. Established the Laboratory for Surgical Metabolism and Nutrition, described glutamine's response to acute illness, and drove the work leading to FDA approval of glutamine for short bowel syndrome.",
+  },
+  {
+    name: "Francis D. Moore, MD",
+    role: "Founder and Principal Investigator, 1948 to 1979",
+    photo: "/team/francis-moore.jpg",
+    alt: "Francis D. Moore, MD",
+    bio: "Third Surgeon-in-Chief of the Brigham and Moseley Professor of Surgery at Harvard Medical School. Pioneered the study of body composition and the metabolic care of the surgical patient; under his leadership the world's first successful human organ transplant was performed.",
   },
 ];
 
@@ -72,31 +113,16 @@ export const fellows: Member[] = [
 // --- Students ----------------------------------------------------------------
 // EDIT ME: add one entry per student. Duplicate the block below, or delete it
 // once the section is filled. Add a headshot to public/team/ and set `photo`.
-export const students: Member[] = [
-  {
-    name: "Student Name",
-    role: "Graduate or Medical Student",
-    bio: "EDIT ME: replace with the student's name, program or year, and a one-line description of their project in the lab.",
-  },
-];
+// The section stays hidden while this array is empty. Template entry:
+// { name: "Student Name", role: "Graduate or Medical Student", bio: "..." }
+export const students: Member[] = [];
 
 // --- Collaborators (other labs) ----------------------------------------------
 // EDIT ME: list collaborating labs or investigators. `role` = institution and
 // focus. `href` (optional) links to the collaborator's lab page.
-export const collaborators: Member[] = [
-  {
-    name: "Collaborating Lab or Investigator",
-    role: "Institution, research focus",
-    href: "",
-    bio: "EDIT ME: replace with the collaborator's lab name, institution, and the shared area of work.",
-  },
-  {
-    name: "Collaborating Lab or Investigator",
-    role: "Institution, research focus",
-    href: "",
-    bio: "EDIT ME: duplicate this block for each collaborating lab, or delete it.",
-  },
-];
+// The section stays hidden while this array is empty. Template entry:
+// { name: "Lab or Investigator", role: "Institution, focus", href: "", bio: "..." }
+export const collaborators: Member[] = [];
 
 // Back-compat: a flat list of current members (leadership + fellows).
 export const team: Member[] = [...leadership, ...fellows];

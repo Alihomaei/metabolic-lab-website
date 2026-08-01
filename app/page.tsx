@@ -19,10 +19,10 @@ export default function HomePage() {
     .slice(0, 3);
 
   const stats = [
-    { value: `${research.length}`, label: "Research areas" },
-    { value: `${publications.length}+`, label: "Publications" },
-    { value: `${team.length}`, label: "Team members" },
-    { value: site.medicalSchool.split(" ")[0], label: "Affiliation" },
+    { value: `${research.length}`, label: "Research areas", href: "/research" },
+    { value: `${publications.length}+`, label: "Publications", href: "/publications" },
+    { value: `${team.length}`, label: "Team members", href: "/team" },
+    { value: site.founded, label: "Founded", href: "#about" },
   ];
 
   return (
@@ -56,21 +56,55 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ================= STATS ================= */}
-      <section className="border-b border-line bg-ink text-white">
-        <div className="mx-auto max-w-7xl px-5 sm:px-8">
-          <dl className="grid grid-cols-2 md:grid-cols-4 divide-x divide-white/15">
-            {stats.map((s) => (
-              <div key={s.label} className="px-5 py-10 first:pl-0">
-                <dd className="num display text-4xl sm:text-5xl font-extrabold text-white">
-                  {s.value}
-                </dd>
-                <dt className="mt-2 text-xs font-semibold uppercase tracking-wider text-white/60">
-                  {s.label}
-                </dt>
+      {/* ================= LAB INTRO ================= */}
+      <section id="about" className="scroll-mt-24 border-b border-line bg-white">
+        <div className="mx-auto max-w-7xl px-5 sm:px-8 py-20 sm:py-28">
+          <Reveal as="div" className="grid gap-10 lg:grid-cols-12">
+            <div className="lg:col-span-5">
+              <p className="kicker kicker-crimson">Who we are</p>
+              <h2 className="display display-section mt-4">
+                Continuing the Brigham&rsquo;s tradition of surgical metabolic
+                research since {site.founded}.
+              </h2>
+            </div>
+            <div className="lg:col-span-6 lg:col-start-7 self-end">
+              <p className="text-base leading-relaxed text-slate">
+                Founded by Dr. Francis D. Moore, our laboratory pioneered the
+                study of how surgery reshapes metabolism. Today we work to
+                understand the mechanistic underpinnings of bariatric surgery,
+                from its anti-diabetic effects to its influence on immunity and
+                cancer, and to translate these discoveries into therapies that
+                are more effective and less invasive.
+              </p>
+              <div className="mt-6">
+                <Link href="/team" className="arrow-link text-sm">
+                  Meet the team <Arrow />
+                </Link>
               </div>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ================= STATS (each tile links to its page) ================= */}
+      <section className="on-dark border-b border-line bg-ink text-white">
+        <div className="mx-auto max-w-7xl px-5 sm:px-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-white/15">
+            {stats.map((s) => (
+              <Link
+                key={s.label}
+                href={s.href}
+                className="group block px-5 py-10 first:pl-0 transition-colors hover:bg-white/[0.06]"
+              >
+                <div className="num display text-4xl sm:text-5xl font-extrabold text-white">
+                  {s.value}
+                </div>
+                <div className="mt-2 text-xs font-semibold uppercase tracking-wider text-white/60 transition-colors group-hover:text-white">
+                  {s.label}
+                </div>
+              </Link>
             ))}
-          </dl>
+          </div>
         </div>
       </section>
 

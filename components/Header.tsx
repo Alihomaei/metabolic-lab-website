@@ -2,13 +2,22 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { site } from "@/data/site";
 import BrandLogo from "@/components/BrandLogo";
 
 export default function Header() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  // Soft shadow once the page is scrolled, so the sticky bar reads as a layer.
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   const isActive = (href: string) =>
     href === "/" ? pathname === "/" : pathname.startsWith(href);
@@ -18,7 +27,11 @@ export default function Header() {
       {/* thin crimson accent bar */}
       <div className="h-1 bg-crimson" />
 
-      <div className="border-b border-line bg-white/85 backdrop-blur-md supports-[backdrop-filter]:bg-white/70">
+      <div
+        className={`border-b border-line bg-white/85 backdrop-blur-md supports-[backdrop-filter]:bg-white/70 transition-shadow duration-300 ${
+          scrolled ? "shadow-[0_2px_18px_rgba(15,15,15,0.08)]" : "shadow-none"
+        }`}
+      >
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
           <div className="flex h-[72px] items-center justify-between gap-6">
             {/* Official lab logo (falls back to wordmark until the file is added) */}

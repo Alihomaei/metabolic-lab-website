@@ -11,7 +11,7 @@ export default function ContactPage() {
     <div className="mx-auto max-w-7xl px-5 sm:px-8">
       <header className="grid gap-8 lg:grid-cols-12 py-16 sm:py-20 border-b border-ink">
         <div className="lg:col-span-8">
-          <p className="kicker kicker-crimson">05 · Get in touch</p>
+          <p className="kicker kicker-crimson">06 · Get in touch</p>
           <h1 className="display display-page mt-5">Contact</h1>
         </div>
         <p className="lg:col-span-4 self-end text-base leading-relaxed text-slate">
@@ -29,6 +29,16 @@ export default function ContactPage() {
         >
           {site.contact.email}
         </a>
+        <ul className="mt-8 space-y-2">
+          {site.contact.piEmails.map((pi) => (
+            <li key={pi.email} className="text-sm text-slate">
+              {pi.name}:{" "}
+              <a className="body-link" href={`mailto:${pi.email}`}>
+                {pi.email}
+              </a>
+            </li>
+          ))}
+        </ul>
       </section>
 
       <div className="grid gap-px bg-line sm:grid-cols-2 border-x border-b border-line">
@@ -45,7 +55,12 @@ export default function ContactPage() {
             <br />
             {site.contact.address.line2}
           </address>
-          <p className="mt-4 num text-slate">{site.contact.phone}</p>
+          <p className="mt-4 num text-slate">
+            {site.contact.phone}{" "}
+            <span className="text-xs uppercase tracking-wider">
+              (BWH main line)
+            </span>
+          </p>
         </section>
 
         <section className="bg-white p-8 sm:p-10 prose-links">

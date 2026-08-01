@@ -188,38 +188,31 @@ export default function ScrollVideoHero() {
 
         {/* Overlay content - left third, vertically centered; SSR'd, keyboard-reachable */}
         <div className="relative z-10 mx-auto flex h-full min-h-svh max-w-7xl flex-col justify-center px-5 py-28 sm:px-8">
-          {/* shifted left by 12.5vw, clamped so it never leaves the viewport */}
-          <div className="w-full md:max-w-[33vw] md:ml-[max(-12.5vw,(80rem-100vw)/2)]">
+          {/* shifted left by 12.5vw, clamped so it never leaves the viewport;
+              wider below lg so md viewports don't over-wrap the headline */}
+          <div className="w-full md:max-w-[46vw] lg:max-w-[33vw] md:ml-[max(-12.5vw,(80rem-100vw)/2)]">
             <p className="flex items-center gap-3 text-[1.08rem] font-semibold uppercase tracking-[0.16em] text-white/85">
               <span className="inline-block h-px w-10 bg-crimson" aria-hidden="true" />
               {site.department} &middot; {site.institution}
             </p>
-            <h1
-              className="display mt-6 text-[clamp(3.375rem,6vw,6rem)]"
-              style={{ color: "#ffffff" }}
-            >
+            <h1 className="display display-hero mt-6 text-white">
               Advancing
               <br />
               metabolic surgery
               <br />
               science.
             </h1>
-            <p className="mt-8 max-w-xl text-[1.69rem] leading-relaxed text-white/85">
+            <p className="hero-tagline mt-8 max-w-xl leading-relaxed text-white/85">
               {site.tagline}
             </p>
             <div className="mt-10 flex flex-wrap items-center gap-4">
               <Link
                 href="/research"
-                className="btn btn-primary ring-1 ring-white/25"
-                style={{ fontSize: "1.275rem" }}
+                className="btn btn-lg btn-primary ring-1 ring-white/25"
               >
                 Explore our research <Arrow />
               </Link>
-              <Link
-                href="/contact"
-                className="btn btn-invert"
-                style={{ fontSize: "1.275rem" }}
-              >
+              <Link href="/contact" className="btn btn-lg btn-invert">
                 Join the lab
               </Link>
             </div>
